@@ -41,6 +41,12 @@
       "name": "Fiddle Leaf Fig",
       "image": "./images/fiddle-leaf-fig.jpg",
       "price": 55
+    },
+    {
+      "name": "Ginseng Ficus Bonusai",
+      "image": "https://images.thdstatic.com/productImages/f4cbbab9-24fc-451b-ae4e-528265acacb4/svn/arcadia-garden-products-house-plants-lv60-64_300.jpg",
+      "price": "51.43",
+      "id": 8
     }
   ]
 }
