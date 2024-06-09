@@ -1,27 +1,26 @@
 import React, { useState } from "react";
 
-function PlantCard({ plant }) {
+function PlantCard({ plant, onDeletePlant }) {
 
-  const [inStock, setInStock] = useState(true);
+  const { id, name, image, price } = plant;
+  const [inStock, setInStock] = useState(true);  
 
   function handleButtonClick() {
     setInStock(prevState =>!prevState);
   }
 
-  function handleChangePrice(event) {
-    console.log(event.target.textContent);
-  }
-
-  function handleClick(event) {
-    const item = event.target === <img /> ? event.target.parentNode : event.target;;
-    console.log(item);
+  function handleClick() {
+    onDeletePlant(id)
+    fetch(`http://localhost:6001/plants/${id}`, {
+      method: "DELETE",
+    })
   }
 
   return (
-    <li className="card" data-testid="plant-item" onClick={handleClick}>
-      <img src={plant.image} alt={plant.name} />
+    <li className="card" data-testid="plant-item">
+      <img src={image} alt={name} onClick={handleClick}/>
       <h4>{plant.name}</h4>
-      <p onClick={handleChangePrice}>Price: {plant.price}</p>
+      <p>Price: {price}</p>
       {inStock ? (
         <button className="primary" onClick={handleButtonClick}>In Stock</button>
       ) : (
